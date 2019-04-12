@@ -7,4 +7,59 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Floreria';
+  color = "red";
+
+  arregloFlores =[
+    new Flor("Rosa", "Azul"),
+    new Flor("Dalias", "blancas"),
+    new Flor("Margaritas", "Amarillas")
+  ];
+
+  arregloFloresJs = [
+    {
+      nombre: "Rosa",
+      descripcion: "azul"
+    },
+    {
+      nombre: "Dalias",
+      descripcion: "Blancas"
+    },
+    {
+      nombre: "Margaritas",
+      descripcion: "Semiblancas"
+    }
+  ]
+
+  cambioFeliz(evento:boolean){
+    //logica para hacerle verde
+    console.log("Feliz");
+    this.color = "green";
+    
+  }
+
+  cambioEnojado(evento:boolean){
+    //logica para hacerlo amarillo
+    console.log("Enojado")
+    this.color = "yellow"
+
+  }
+}
+
+
+// class Flor{
+//   nombre: string;
+//   descripcion: string;
+
+//   constructor(nombre:string, descripcion:string){
+//     this.nombre= nombre;
+//   }
+// }
+
+class Flor{
+  
+  constructor(
+    public nombre:string, //sin public no es un atributo de la clase
+    public descripcion:string){
+    
+  }
 }
