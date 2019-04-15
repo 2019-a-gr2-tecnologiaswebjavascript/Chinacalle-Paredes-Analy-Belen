@@ -1,7 +1,6 @@
 <h1 
-*ngFor= "let color of colores; let color = color" class="color"
-(cambioFeliz)="cambioFeliz($event)"
-(cambioEnojado)="cambioEnojado($event)">Titulo {{title}}
+ [class]="color"
+>Titulo {{title}}
 </h1>
 <app-item-galeria
   *ngFor="let flor of arregloFloresJs"
