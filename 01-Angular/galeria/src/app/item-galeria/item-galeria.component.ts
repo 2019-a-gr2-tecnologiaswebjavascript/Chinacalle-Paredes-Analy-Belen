@@ -1,15 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { CarritoService } from '../servicios/carrito/carrito.service';
 
 @Component({  //decorador    Se le envia un objeto javascript
   selector: 'app-item-galeria', //nombre de la etiqueta
   templateUrl: './item-galeria.component.html',   // En donde está la estructura
   styleUrls: ['./item-galeria.component.css']   //varias
 })
-export class ItemGaleriaComponent implements OnInit {
+export class ItemGaleriaComponent implements OnInit, OnDestroy {
+
 
   title = 'Licoreria';
-
   
+
+  @Input()
+  titulo;
+
 
   @Input()
   textoBoton;
@@ -26,12 +31,15 @@ export class ItemGaleriaComponent implements OnInit {
 
   url = "http://static.t13.cl/images/sizes/1200x675/1532388113-auno886072.jpg";
 
-  notas = [1,2,3,4,5,6,7,8,9,10]
+  @Input()
+  notas;  //productos
 
-  constructor() { }
+  //Dependency Injection
+  //Injección de dependencias  --> Servicios --> Compartidos
+  //Se inyectan en Componentes, Servicios y modulos
+  constructor(private readonly _carritoService:CarritoService ) { }
 
-  ngOnInit() {
-  }
+  
 
   alertar(){
     alert('Auxilioo me desmayo' + this.nombreItem);
@@ -54,10 +62,32 @@ export class ItemGaleriaComponent implements OnInit {
       this.url =  gatoEnojado;
       this.cambioEnojado.emit(true)
     }
+
     
     
   }
+  ngOnInit() {
+    console.log('Empezo')
+    console.log(this._carritoService.carritoCompras)
+  }
+  
+  ngOnDestroy(){
+    console.log('"Termino"')
+  }
 
+
+  agregarCarrito(valorCarrito){
+    //this._carritoService.carritoCompras.push(valorCarrito);
+
+    const itemCarrito = {
+      valor: valorCarrito,
+      tienda: this.titulo
+    }
+
+    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+
+    console.log(this._carritoService.carritoCompras);
+  }
 
 
 

@@ -2,15 +2,32 @@
  [class]="color"
 >Titulo {{title}}
 </h1>
-<app-item-galeria
-  *ngFor="let flor of arregloFloresJs"
-  [textoBoton]="flor.nombre" 
-  [nombreItem]="flor.descripcion"
-  (cambioFeliz)="cambioFeliz($event)"
-  (cambioEnojado)="cambioEnojado($event)"
 
->
+<!-- {{interpolacion}} -->
+<!-- ()eventBinding
+[]property binding -->
+<pre>
+  {{_carritoService.carritoCompras | json}}
+</pre>
 
-</app-item-galeria>
+
+<button (click)="mostrar(true)">Mostrar</button>
+
+<button (click)="mostrar(false)">Ocultar</button>
+
+<div *ngIf="!estaMostrando">
+    <app-item-galeria
+    *ngFor="let flor of arregloFloresJs"
+    [titulo]="flor.titulo"
+    [textoBoton]="flor.nombre" 
+    [nombreItem]="flor.descripcion"
+    [notas]="flor.notas"
+    (cambioFeliz)="cambioFeliz($event)"
+    (cambioEnojado)="cambioEnojado($event)"
+  
+  >
+  </app-item-galeria>
+  
+</div>
 
 <!-- para capturar datos se utiliza el $event -->
