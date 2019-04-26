@@ -2,3 +2,42 @@
 .rojo{
     color: red;
 }
+
+.contenedor{
+    
+    padding: 40px;
+    margin: 40px;
+    border: 20px black solid;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+
+.item-menu{
+    color: darkblue;
+    margin: 10px;
+    min-width: 20px;
+    min-height: 58;
+    border: solid white 2px;
+    float: right;
+}
+
+.item-menu:hover{
+    color: white;
+    background-color: darkblue;
+    transform: scale(2,2);
+    margin: 10px;
+    cursor: pointer;
+    border: gray solid 2px;
+    min-width: 20px;
+    min-height: 58;
+    
+}
+
+.texto-derecha{
+    text-align: right
+}
+
+body{
+    font-family: fantasy
+}
