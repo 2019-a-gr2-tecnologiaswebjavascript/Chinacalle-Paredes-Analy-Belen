@@ -24,7 +24,8 @@ export class AppComponent {
       descripcion: "azul",
       notas: [
         'Hot dog',
-        'Hamburguesas'
+        'Hamburguesas',
+        'Papitas'
       ]
     },
     {
@@ -32,7 +33,7 @@ export class AppComponent {
       nombre: "Dalias",
       descripcion: "Blancas",
       notas: [
-        'papitas',
+        'Papitas',
         'empanadas'
       ]
     },
@@ -42,7 +43,8 @@ export class AppComponent {
       descripcion: "Semiblancas",
       notas: [
         'motes',
-        'fritada'
+        'fritada',
+        'Papitas'
       ]
     }
   ]

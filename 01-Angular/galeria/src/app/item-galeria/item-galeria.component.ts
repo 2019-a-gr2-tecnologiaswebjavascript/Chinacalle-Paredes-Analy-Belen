@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
+import { ItemCarritoCompras } from '../interfaces/item-carrito-compras';
+import { ProductoCarritoCompras } from '../interfaces/producto-carrito-compras';
 
 @Component({  //decorador    Se le envia un objeto javascript
   selector: 'app-item-galeria', //nombre de la etiqueta
@@ -76,17 +78,38 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
   }
 
 
-  agregarCarrito(valorCarrito){
+  agregarCarrito(valorCarrito, titulo){
     //this._carritoService.carritoCompras.push(valorCarrito);
 
-    const itemCarrito = {
-      valor: valorCarrito,
-      tienda: this.titulo
+    // const itemCarrito = {
+    //   valor: valorCarrito,
+    //   tienda: this.titulo
+    // }
+    console.log(titulo);
+
+    const producto: ProductoCarritoCompras = {
+        valor: valorCarrito,
+        fechaCompra: new Date(),
     }
 
-    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+    const itemCarrito: ItemCarritoCompras ={
+      nombreTienda: this.titulo,
+      productos: [producto,]
+      //valor: valorCarrito,
+      // nombreTienda: this.titulo,
+      // fechaCompra: new Date()
+    }
+
+    //this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+    const respuestaCarrito = this._carritoService
+    .agregarCarritoDeCompras(itemCarrito);
+    console.log(respuestaCarrito)
 
     console.log(this._carritoService.carritoCompras);
+
+/*     console.log(itemCarrito.productos)
+    itemCarrito.productos.splice(0,0,itemCarrito.productos[0])
+ */    console.log(itemCarrito.productos)
   }
 
 
