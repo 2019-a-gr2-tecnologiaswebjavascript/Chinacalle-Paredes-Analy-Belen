@@ -22,6 +22,7 @@
     float: right;
 }
 
+
 .item-menu:hover{
     color: white;
     background-color: darkblue;
@@ -39,5 +40,56 @@
 }
 
 body{
-    font-family: fantasy
+    font-family: Quicksand,sans-serif;
+    font-size: 6;
+    color: blue;
+}
+
+
+
+.opciones{
+    border-style: groove;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    padding: 20px;
+}
+.opciones:hover{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    text-decoration-style: double;
+}
+.texto-articulos{
+    text-align: center;
+    color: black;
+
+}
+.titulo{
+    color: black;
+    font-weight: bold;
+
+}
+.boton{
+    align-content: center;
+    margin: 50px;
+    
+
+}
+.img{
+    width: 100%;
+
+}
+.img:hover{
+    -webkit-transform: scale(1);
+    transform: scale(1.02,1.02);
+}
+.borde{
+    border-style: ridge;
+
+}
+.linea{
+    size: "150"; 
+    width: "100%"; 
+    color: "darkblue";
 }
