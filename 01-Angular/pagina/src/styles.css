@@ -115,3 +115,9 @@ body{
 .logo{
     width: 60%;
 }
+
+.barra{
+    width: 100%;
+    color: #fff;
+    background: #003679
+}
