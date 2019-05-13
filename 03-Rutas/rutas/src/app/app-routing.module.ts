@@ -9,6 +9,7 @@ import { RutaProductosVideojuegosComponent } from './rutas/ruta-productos-videoj
 import { RutaVideojuegosFutbolComponent } from './rutas/ruta-videojuegos-futbol/ruta-videojuegos-futbol.component';
 import { RutaVideojuegosPeleaComponent } from './rutas/ruta-videojuegos-pelea/ruta-videojuegos-pelea.component';
 import { RutaVideojuegosCarrerasComponent } from './rutas/ruta-videojuegos-carreras/ruta-videojuegos-carreras.component';
+import { EstaLoggeadoService } from './servicios/guards/esta-loggeado.service';
 
 const routes: Routes = [
   {
@@ -17,7 +18,10 @@ const routes: Routes = [
   },
   {
     path: 'creditos/:idCredito/:tasaReferencia?',
-    component: RutaCreditosComponent
+    component: RutaCreditosComponent,
+    canActivate:[
+      EstaLoggeadoService
+    ],
   },
   {
     path: 'productos',
