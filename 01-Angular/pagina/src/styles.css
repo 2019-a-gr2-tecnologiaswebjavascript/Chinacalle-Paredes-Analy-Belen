@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    font-family: Quicksand,sans-serif;
+    font-size: 6;
+    color: blue;
+}
+
+
+
+.opciones{
+    border-style: groove;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    padding: 20px;
+}
+.opciones:hover{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    text-decoration-style: double;
+}
+.texto-articulos{
+    text-align: center;
+    color: black;
+    width: 100%;
+    height: 100px;
+    display: table;
+    padding-top: 5px;
+
+}
+.titulo{
+    color: black;
+    font-weight: bold;
+
+}
+.boton{
+    
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 20px;
+    bottom: 0;
+    vertical-align: middle;
+    
+    align-content: center
+}
+.img{
+    width: 100%;
+    
+
+}
+.img:hover{
+    -webkit-transform: scale(1);
+    transform: scale(1.02,1.02);
+}
+.borde{
+    border-style: ridge;
+
+}
+.linea{
+    size: "150"; 
+    width: "100%"; 
+    color: "darkblue";
+}
+
+.info{
+    width: 100%;
+    height: auto;
+    padding: 50px 20px 20px;
+    text-align: center;
+    border-top: none;
+    background-color: white;
+}
+.carta{
+    width: 105%;
+    height: 100%;
+    border-block-end-width: initial;
+    border-block-start-width: initial;
+    box-shadow: #e2e2e2
+}
+
+.imagen{
+    text-align: center;
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    width: 80px;
+    height: 80px;
+    margin-top: -7%;
+    margin-left: 40%;
+}
+.final{
+    vertical-align: text-top;
+    padding: 30px;
+    margin-left: 10%;
+}
