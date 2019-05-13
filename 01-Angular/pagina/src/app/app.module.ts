@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ArticuloComponent } from './articulo/articulo.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticuloComponent
+    ArticuloComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
