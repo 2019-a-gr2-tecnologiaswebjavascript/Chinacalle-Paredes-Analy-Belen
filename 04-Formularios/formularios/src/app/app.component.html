@@ -1,0 +1,23 @@
+
+<!-- <form action="http://www.google.com/search" method="GET"> -->
+  Nombre: {{nombre}}
+  <br>
+  Apellido: {{apellido}}
+  <form 
+  #formularioUsuario="ngForm"
+  novalidate
+  (submit)="guardarUsuario(formularioUsuario)"
+  >
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombreUsuario" id="nombre" [(ngModel)]="nombre">
+
+  <label for="apellido">Apellido</label>
+  <input type="text" name="nombreApellido" id="apellido" [(ngModel)]="apellido">
+  <label for="consulta">Consulta a Google</label>
+  <input type="text" name="q" id="consulta" [(ngModel)]="q">
+
+  <button>Tipo boton</button>
+  <button type="reset">Tipo reset</button>
+  <button type="submit">Tipo submit</button>
+ <button>Ir a Google</button> 
+</form>
