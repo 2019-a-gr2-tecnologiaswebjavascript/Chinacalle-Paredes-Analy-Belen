@@ -3,21 +3,94 @@
   Nombre: {{nombre}}
   <br>
   Apellido: {{apellido}}
+  <br>
+
+<pre>Valido: {{formularioUsuario.valid}}</pre>
+<pre>Invalido: {{formularioUsuario.invalid}}</pre>
+<pre>Dirty: {{formularioUsuario.dirty}}</pre>
+<pre>Pristine: {{formularioUsuario.pristine}}</pre>
+<pre>Touched: {{formularioUsuario.touched}}</pre>
+<pre>Untouched: {{formularioUsuario.untouched}}</pre>
+
   <form 
   #formularioUsuario="ngForm"
   novalidate
   (submit)="guardarUsuario(formularioUsuario)"
   >
   <label for="nombre">Nombre</label>
-  <input type="text" name="nombreUsuario" id="nombre" [(ngModel)]="nombre">
+
+  <input id="nombre" 
+  required 
+  pattern="([A-Z])\w+"
+  name="nombreUsuario"  
+  type="email"   
+  [(ngModel)]="nombre"
+  #vtNombre="ngModel"
+  >
+  
+
+  <pre>ERROR: 
+    {{vtNombre.errors | json}}
+  </pre>
+
+  <pre>Valido: {{vtNombre.valid}}</pre>
+  <pre>Invalido: {{vtNombre.invalid}}</pre>
+  <pre>Dirtysoso: {{vtNombre.dirty}}</pre>
+  <pre>Pristiño: {{vtNombre.pristine}}</pre>
+  <pre>Toucheado: {{vtNombre.touched}}</pre>
+  <pre>Untoucheado: {{vtNombre.untouched}}</pre>
+
+
+
+  <!-- <p *ngIf="formularioUsuario.valid"> Nombre valido </p>
+  <p *ngIf="formularioUsuario.invalid"> Invalido</p>
+  <p *ngIf="formularioUsuario.dirty"> Dirtysoso</p>
+  <p *ngIf="formularioUsuario.invalid"> Invalido</p> -->
+
+  <br>
 
   <label for="apellido">Apellido</label>
-  <input type="text" name="nombreApellido" id="apellido" [(ngModel)]="apellido">
-  <label for="consulta">Consulta a Google</label>
-  <input type="text" name="q" id="consulta" [(ngModel)]="q">
+  <input id="apellido" required name="nombreApellido"  type="text"  [(ngModel)]="apellido">
 
-  <button>Tipo boton</button>
+  <br>
+  <label for="cedula">Cedula </label>
+  <input type="text" 
+  name="cedula" 
+  id="ccedula" 
+  required
+  minlength="10"
+  maxlength="10"
+  pattern="([0-9]{10})$"
+
+  [(ngModel)]="cedula"
+  #vtCedula="ngModel"
+  >
+
+
+  <div *ngIf="vtCedula.errors && vtCedula.dirty">
+    <h3>Errores</h3>
+    <p>Existe un error</p>
+    <p *ngIf="vtCedula.errors.minlength"> Minimo son 10 caracteres shunshite</p>
+    <p *ngIf="vtCedula.errors.pattern"> Solo escriba numeritooos y 10 pe</p>
+    <p *ngIf="vtCedula.errors.required">Es obligatoooriiioooo!!!!!! >:( </p>
+  </div>
+
+
+  <pre>ERROR: 
+      {{vtCedula.errors | json}}
+    </pre>
+
+  <br>
+  <button type="button">Tipo boton</button>
+  <br>
   <button type="reset">Tipo reset</button>
-  <button type="submit">Tipo submit</button>
- <button>Ir a Google</button> 
+  <br>
+  <button type="submit" [disabled]="formularioUsuario.invalid">Tipo submit</button>
+
+
 </form>
+
+<!--
+<hijo [nombreHijo]="nombre">  
+</hijo>
+-->
