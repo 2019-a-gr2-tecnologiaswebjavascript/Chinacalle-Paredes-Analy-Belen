@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,4 +14,10 @@ import { Tab1Page } from './tab1.page';
   ],
   declarations: [Tab1Page]
 })
-export class Tab1PageModule {}
+export class Tab1PageModule {
+  constructor( private readonly _NavControl: NavController){}
+
+  mensaje(){
+    console.log("el mensaje es: ");
+  }
+}
