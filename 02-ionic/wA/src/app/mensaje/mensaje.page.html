@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Mensaje</ion-title>
+    <ion-title>{{nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col size="12">
+        <!-- Disabled and readonly textarea in an item with a stacked label -->
+          <ion-item>
+              <ion-label  horizontal="end" ></ion-label>
+              <ion-textarea
+                disabled
+                readonly
+                value="Ionic enables developers to build performant, high-quality mobile apps.">
+              </ion-textarea>
+            </ion-item>
+      </ion-col>
+      <ion-col size="9">
+            <ion-item>
+                <ion-label position="stacked"></ion-label>
+                <ion-textarea
+                  disabled
+                  readonly
+                  value="Ionic enables developers to build performant, high-quality mobile apps.">
+                </ion-textarea>
+              </ion-item>
+      </ion-col>
+        
+  
+  
+
+    </ion-row>
+
+    <ion-row  class="footer">
+      <ion-col size="10">
+          <ion-item position="bottom" vertical="bottom">
+              <ion-label position="bottom">
+                  <ion-icon name="happy"></ion-icon>
+              </ion-label>
+              <ion-input shape="round" placeholder="Escribe un mensaje"></ion-input>
+            </ion-item>
+      </ion-col>
+      <ion-col size="2">
+          <ion-button color="success" (click)="mensajeando()">
+              <ion-icon slot="icon-only" name="send"></ion-icon>
+            </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+    
 
 </ion-content>
