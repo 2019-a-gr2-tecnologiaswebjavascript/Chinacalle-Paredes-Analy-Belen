@@ -15,9 +15,7 @@ import { Tab1Page } from './tab1.page';
   declarations: [Tab1Page]
 })
 export class Tab1PageModule {
-  constructor( private readonly _NavControl: NavController){}
+  
 
-  mensaje(){
-    console.log("el mensaje es: ");
-  }
+  
 }

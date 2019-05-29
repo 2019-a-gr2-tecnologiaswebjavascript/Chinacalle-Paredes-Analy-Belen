@@ -1,70 +1,22 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      CHATS
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
+
 
 <ion-content>
     
     <ion-list >
       <ion-list-header>
       </ion-list-header>
-      <ion-item (click)="mensaje()">
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
-        </ion-label>
-      </ion-item>
-      <ion-item  class="item md in-list ion-focusable item-label hydrated" >
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
-        </ion-label>
-      </ion-item>
-      <ion-item  class="item md in-list ion-focusable item-label hydrated" >
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
-        </ion-label>
-      </ion-item>
-      <ion-item  class="item md in-list ion-focusable item-label hydrated" >
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
-        </ion-label>
-      </ion-item>
+ 
 
-      <ion-item  class="item md in-list ion-focusable item-label hydrated" >
+      <ion-item *ngFor="let item of personas" (click)="mensaje(item.nombre)" [routerLink]="['/mensaje', item.nombre]" >
         <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          <img src={{item.imagen}}>
         </ion-avatar>
         <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
+          <h2> {{item.nombre}}</h2>
+          <p> {{item.mensaje}}</p>
         </ion-label>
+
       </ion-item>
-      <ion-item  class="item md in-list ion-focusable item-label hydrated" >
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>
-          <h2> Pedro</h2>
-          <p> Mensaje mensajoso</p>
-        </ion-label>
-      </ion-item>
+      
     </ion-list>
 </ion-content>
