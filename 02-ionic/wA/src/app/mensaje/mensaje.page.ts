@@ -13,22 +13,37 @@ export class MensajePage implements OnInit {
   ) { }
 
   nombre: any;
-  mensaje: string;
-  respuesta: string;
+  mensaje: string ='a';
+  msj:string;
+  mensajes = [];
+  //tipo 1--> respuesta   0--> mensaje
   respuestas = [
     {
-      mensaje: 'soy una respuesta'
+      mensaje: 'soy una respuesta',
+      respuesta: 1
     },
     {
-      mensaje: 'estoy escribiendo'
+      mensaje: 'estoy escribiendo',
+      respuesta: 1
     },
     {
-      mensaje: 'ojalá pasemos'
+      mensaje: 'ojalá pasemos',
+      respuesta: 1
     },
   ];
 
+  //tipo 1--> respuesta   0--> mensaje
   mensajeando(texto){
+    console.log(texto)
+    this.aumentarMensaje(texto,0)
+  }
 
+  aumentarMensaje(mensajito:string, tipo:number){
+    const indice:number = Math.round(Math.random()*3);
+    console.log(indice)
+    this.mensajes.push({mensaje: mensajito, respuesta:tipo})
+    this.mensajes.push(this.respuestas[indice])
+    console.log(this.mensajes)
   }
 
 

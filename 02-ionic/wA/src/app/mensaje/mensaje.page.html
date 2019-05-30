@@ -8,8 +8,7 @@
 
   <ion-grid>
     <ion-row >
-      <ion-col size="12">
-        <!-- Disabled and readonly textarea in an item with a stacked label -->
+        <ion-col size="12">
           <ion-item>
               <ion-label  horizontal="end" ></ion-label>
               <ion-textarea
@@ -18,15 +17,18 @@
                 value="Ionic enables developers to build performant, high-quality mobile apps.">
               </ion-textarea>
             </ion-item>
-      </ion-col>
+        </ion-col>
+      
       <ion-col size="9">
-            <ion-item>
+            <ion-item *ngFor="let item of mensajes" >
                 <ion-label position="stacked"></ion-label>
                 <ion-textarea
                   disabled
                   readonly
-                  value="Ionic enables developers to build performant, high-quality mobile apps.">
-                </ion-textarea>
+                  
+                  > 
+                  {{item.mensaje}}
+                </ion-textarea> 
               </ion-item>
       </ion-col>
         
@@ -41,11 +43,11 @@
               <ion-label position="bottom">
                   <ion-icon name="happy"></ion-icon>
               </ion-label>
-              <ion-input shape="round" placeholder="Escribe un mensaje"></ion-input>
+              <ion-input [(ngModel)]="msj" clearInput shape="round" placeholder="Escribe un mensaje"></ion-input>
             </ion-item>
       </ion-col>
       <ion-col size="2">
-          <ion-button color="success" (click)="mensajeando()">
+          <ion-button color="success" (click)="mensajeando(msj)">
               <ion-icon slot="icon-only" name="send"></ion-icon>
             </ion-button>
       </ion-col>
