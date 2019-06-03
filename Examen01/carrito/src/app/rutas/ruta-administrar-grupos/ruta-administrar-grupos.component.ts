@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AdministrarGruposService } from './servicios/administrar-grupos.service';
+import { stringify } from '@angular/core/src/util';
+import { text } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-ruta-administrar-grupos',
@@ -7,13 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutaAdministrarGruposComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly _AdminGruposService: AdministrarGruposService) { }
   busqueda: string;
+  estudiantes =[];
+
   buscar(texto) {
+    const busq: string= "";
+    texto = busq;
+    console.log(texto);
+    this.estudiantes = this._AdminGruposService.busqueda(texto);
 
   }
 
+  eliminar(id){
+    this.estudiantes = this._AdminGruposService.eliminar(id);
+  }
+
   ngOnInit() {
+    this.estudiantes = this._AdminGruposService.enviarEstudiantes();
+    console.log(this.estudiantes)
+
 
   }
 

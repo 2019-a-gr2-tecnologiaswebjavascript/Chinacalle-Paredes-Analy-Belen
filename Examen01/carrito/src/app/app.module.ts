@@ -10,6 +10,8 @@ import {FormsModule} from '@angular/forms';
 import { RutaAdministrarGruposComponent } from './rutas/ruta-administrar-grupos/ruta-administrar-grupos.component';
 import { RutaRevisarComprasComponent } from './rutas/ruta-revisar-compras/ruta-revisar-compras.component';
 import { RutaComprarComponent } from './rutas/ruta-comprar/ruta-comprar.component';
+import { AdministrarGruposService } from './rutas/ruta-administrar-grupos/servicios/administrar-grupos.service';
+import { RutaNuevoEstudianteComponent } from './rutas/ruta-administrar-grupos/ruta-nuevo-estudiante/ruta-nuevo-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,17 @@ import { RutaComprarComponent } from './rutas/ruta-comprar/ruta-comprar.componen
     RutaNoEncontradaComponent,
     RutaAdministrarGruposComponent,
     RutaRevisarComprasComponent,
-    RutaComprarComponent
+    RutaComprarComponent,
+    RutaNuevoEstudianteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AdministrarGruposService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
