@@ -13,6 +13,8 @@ export class MensajePage implements OnInit {
   ) { }
 
   nombre: any;
+  foto ='https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y';
+  ultimaVez='Hoy a las 13:35';
   mensaje: string ='a';
   msj:string;
   mensajes = [];
