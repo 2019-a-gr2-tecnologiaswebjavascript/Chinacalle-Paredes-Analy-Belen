@@ -21,12 +21,11 @@ export class TieneNombreService implements CanActivate{
 //throw new Error("Method not implemented.");
 
       const guardoNombre = this._autorizarNombre.guardoNombre;
-      if(guardoNombre){
-        console.log('si guardó')
-        return true
-      }
-      else{
-        const url = ["/home","app"];
+      if (guardoNombre) {
+        console.log('si guardó');
+        return true;
+      } else {
+        const url = ['/home', 'app'];
         this._router.navigate(url);
         console.log('No tiene permiso');
         return false;

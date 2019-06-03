@@ -9,17 +9,17 @@ export class AutorizarNombreService {
   guardoNombre: boolean = false;
   constructor(private readonly _router: Router) { }
 
-  login(nombre: string){
-    if(nombre.length > 3){
+  login(nombre: string) {
+    if (nombre.length >= 3) {
       this.guardoNombre = true;
-      const url = ["/menu",];
+      const url = ['/menu', ];
       const parametros = {
         queryParams: {
           nombre: nombre
         }
       };
 
-      this._router.navigate(url, parametros)
+      this._router.navigate(url, parametros);
       return true;
     }else{
       return false;

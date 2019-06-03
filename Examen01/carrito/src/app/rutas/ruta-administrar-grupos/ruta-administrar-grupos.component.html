@@ -1,0 +1,22 @@
+<p>
+  ruta-administrar-grupos works!
+</p>
+
+<h1>Gestion de Grupos</h1>
+<p>Busque, cree, actualice y elimine grupos
+  Puede buscar grupos por el nombre</p>
+
+
+  <div class="row">
+    <div class="col-sm-9">
+      <label for="busqueda">Busqueda</label>
+      <input id="busqueda" type="text" name="busqueda" [(ngModel)]="busqueda">
+      <br>
+    </div>
+    <div class="col-sm-3">
+      <button class="btn btn-outline-success btn-block" (click)="buscar(busqueda)">
+        Buscar
+      </button>
+    </div>
+  </div>
+

@@ -4,7 +4,7 @@ h
 
 <div>
     <label for="nombre">Nombre </label>
-    <input  type="text" id="nombre" name="nombre" >
+    <input  type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
   </div>
   <div>
     <button type="submit" (click)="ingresar(nombre)">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-ruta-menu',
@@ -8,12 +8,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RutaMenuComponent implements OnInit {
 
-  constructor(private readonly _activatedRoute: ActivatedRoute) { }
+  acciones = [
+    {titulo: 'Revisar Compras',
+     path1: 'menu',
+     path2: 'comprar'},
+    {titulo: 'Administrar Grupos',
+      path1: 'menu',
+      path2: 'revisar-grupos'},
+    {titulo: 'Comprar',
+      path1: 'menu',
+      path2: 'revisar-compra'}
+  ];
+  constructor(private readonly _activatedRoute: ActivatedRoute,
+              private readonly _router: Router
+              ) { }
+
+  redirigir(path1, path2) {
+    console.log('/menu', path2);
+    const url = ['/menu', path2];
+    this._router.navigate(url);
+  }
+
 
   ngOnInit() {
     const parametros$ = this._activatedRoute.params;  //$ significa que es un observable
     const parametrosConsulta$ = this._activatedRoute.queryParams;
-//Ambos parametros no necesitan las funciones "Catch" y "Complete" porque son especiallleeessss 
+//Ambos parametros no necesitan las funciones "Catch" y "Complete" porque son especiallleeessss
 
     parametrosConsulta$.subscribe(
       (parametrosConsulta)=>{
@@ -22,17 +42,16 @@ export class RutaMenuComponent implements OnInit {
     )
 
     console.log('inicio');
-    
     parametros$
     .subscribe(
-      (parametros)=>{  //OK TRY
-        console.log('Parametros', parametros)
+      (parametros) => {  //OK TRY
+        console.log('Parametros', parametros);
       },
-      (error)=>{    //CATCH
-        console.log('Error: ', error)
+      (error) => {    //CATCH
+        console.log('Error: ', error);
       },
-      ()=>{ //Completado --> finally
-        console.log('completo')
+      () => { //Completado --> finally
+        console.log('completo');
       }
     )
 

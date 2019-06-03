@@ -12,10 +12,10 @@ export class RutaHomeComponent implements OnInit {
   nombre: string;
   items=[1,2,3,4]
 
-  ingresar(cajero){
+  ingresar(cajero) {
     this.nombre = cajero;
     console.log('Estamos guardando el nombre c:');
-    this._autorizarService.login(cajero);
+    this._autorizarService.login(this.nombre);
   }
 
   logout(){
