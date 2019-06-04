@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdministrarGruposService } from '../servicios/administrar-grupos.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { AutorizarNombreService } from 'src/app/autorizar/autorizar-nombre.service';
 
 @Component({
   selector: 'app-ruta-gestion-productos',
@@ -13,7 +15,9 @@ export class RutaGestionProductosComponent implements OnInit {
   materias = [];
   busqueda: string = "";
   constructor(private readonly _adminGrupoService: AdministrarGruposService,
-              private readonly _activatedRoute: ActivatedRoute
+              private readonly _activatedRoute: ActivatedRoute,
+              private readonly _router: Router,
+    private readonly _autorizarNombre: AutorizarNombreService
     ) { }
 
     buscar(texto) {
@@ -25,6 +29,16 @@ export class RutaGestionProductosComponent implements OnInit {
 
     eliminar(id){
       this.materias = this._adminGrupoService.eliminarMateria(id);
+    }
+    back(){
+      const url = ['/menu',];
+    const parametros = {
+      queryParams: {
+        nombre: this._autorizarNombre.nombre
+      }
+    };
+
+    this._router.navigate(url, parametros);
     }
 
     redirigir(){

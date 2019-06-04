@@ -30,7 +30,10 @@ export class RutaComprarComponent implements OnInit {
 
   cajero = "";
   total = 0;
-  carrito: ItemCarritoCompras;
+  carrito: ItemCarritoCompras ={
+    nombreCajero: this.cajero,
+      productos: []
+  };
 
   agregar(item){
     console.log(item.estudiante)
@@ -102,11 +105,7 @@ export class RutaComprarComponent implements OnInit {
     const guardoNombre = this._autorizarNombre.guardoNombre;
     this.cajero = this._autorizarNombre.nombre;
 
-    const carrito: ItemCarritoCompras = {
-      nombreCajero: this.cajero,
-      productos: []
-    }
-    const crear = this._carritoService.crearCarrito(carrito);
+    const crear = this._carritoService.crearCarrito(this.carrito);
     this.carrito = crear;
   }
 
