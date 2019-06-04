@@ -9,13 +9,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class RutaMenuComponent implements OnInit {
 
   acciones = [
-    {titulo: 'Revisar Compras',
+    {titulo: 'Comprar',
      path1: 'menu',
      path2: 'comprar'},
     {titulo: 'Administrar Grupos',
       path1: 'menu',
       path2: 'revisar-grupos'},
-    {titulo: 'Comprar',
+    {titulo: 'Revisar Compras',
       path1: 'menu',
       path2: 'revisar-compra'}
   ];

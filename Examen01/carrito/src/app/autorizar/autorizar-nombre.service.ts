@@ -7,11 +7,13 @@ import { Router } from '@angular/router';
 export class AutorizarNombreService {
 
   guardoNombre: boolean = false;
+  nombre: string ="";
   constructor(private readonly _router: Router) { }
 
   login(nombre: string) {
     if (nombre.length >= 3) {
       this.guardoNombre = true;
+      this.nombre = nombre;
       const url = ['/menu', ];
       const parametros = {
         queryParams: {

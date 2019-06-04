@@ -57,7 +57,7 @@
             <td> {{item.graduado}} </td>
             <td>
                 
-                    <button class="btn btn-outline-primary btn-block estaciado-boton" >Productos</button>
+                    <button class="btn btn-outline-primary btn-block estaciado-boton" (click)="redirigir(item.id)" >Productos</button>
                     <button class="btn btn-outline-danger btn-block estaciado-boton"  type="submit" (click)= "eliminar(item.id)"> Eliminar</button>
                 
             </td>

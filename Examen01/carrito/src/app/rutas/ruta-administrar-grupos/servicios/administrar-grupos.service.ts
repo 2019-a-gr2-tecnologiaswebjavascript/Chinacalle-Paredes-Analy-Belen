@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { ItemCarritoCompras } from '../../ruta-comprar/interfaces/item-carrito-compras';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class AdministrarGruposService {
   
   
-  constructor() { }
+  constructor(private readonly _router: Router) { }
 
   listaEstudiantes: Estudiante[] = [
     {
@@ -44,7 +46,7 @@ export class AdministrarGruposService {
       activo: true,
       fechaCreacion: '2000-10-01',
       numeroHorasPorSemana: 4,
-      estudianteid: [1,]
+      estudianteid: [1,2]
     },
     {
       nombre: 'Algebra',
@@ -58,6 +60,7 @@ export class AdministrarGruposService {
     },
   ]
   
+  listaFacturas: ItemCarritoCompras[]= [];
   
   enviarEstudiantes(){
     console.log(this.listaEstudiantes)
@@ -66,7 +69,6 @@ export class AdministrarGruposService {
 
   busqueda(key: string){
     const busqueda = this.listaEstudiantes.filter(n => (n.nombres.includes(key)));
-
     console.log(busqueda);
     return busqueda;
   }
@@ -83,10 +85,10 @@ export class AdministrarGruposService {
     return this.listaEstudiantes;
   }
 
-  asignarIndice(){
+  asignarIndice(lista){
 
     let max = 1;
-    this.listaEstudiantes.forEach(
+    lista.forEach(
       (actual, indice, arreglo) =>{
         if (actual.id > max){
           max = actual.id
@@ -97,7 +99,7 @@ export class AdministrarGruposService {
     return max;
   }
   insertar(nombre, apellido, fecha, semestre, graduado){
-    const indice = this.asignarIndice()
+    const indice = this.asignarIndice(this.listaEstudiantes) +1;
     const nuevo: Estudiante = {
       id: indice,
       nombres: nombre,
@@ -110,8 +112,71 @@ export class AdministrarGruposService {
 
   }
 
+  redirigir(url){
+    this._router.navigate(url);
+  }
 
 
+  //
+  enviarMaterias(){
+    console.log('materias: ',this.listaMaterias);
+    return this.listaMaterias;
+  } 
+
+  enviarMateriasPorEstudiante(idEstudiante:number){
+    const busqueda = this.listaMaterias.filter(n => (n.codigo === idEstudiante));
+    console.log(busqueda);
+    return busqueda;
+  }
+
+  busquedaMateria(key: string){
+    const busqueda = this.listaMaterias.filter(n => (n.nombre.includes(key)));
+    console.log(busqueda);
+    return busqueda;
+  }
+
+  buscarIndexMateria(id: number){
+    const index = this.listaMaterias.findIndex(n => (n.codigo === id));
+    return index;
+  }
+
+  eliminarMateria(id:number){
+    const index = this.buscarIndex(id);
+    this.listaMaterias.splice(index,1);
+    return this.listaMaterias;
+  }
+
+  insertarMateria(nombre, precio, descripcion,activo, fechaCreacion, numeroHorasPorSemana, estudianteid){
+    const indice = this.asignarIndice(this.listaMaterias) +1;
+
+    const nueva = {
+      nombre: nombre,
+      precio: precio,
+      codigo: indice,  //id materia
+      descripcion: descripcion,
+      activo: activo,
+      fechaCreacion: fechaCreacion,
+      numeroHorasPorSemana: numeroHorasPorSemana,
+      estudianteid: estudianteid
+    };
+    this.listaMaterias.push(nueva);
+    return this.listaMaterias;
+  }
+
+  insertarFactura(factura: ItemCarritoCompras){
+    console.log(factura)
+    this.listaFacturas.push(factura);
+
+  }
+  enviarFacturas(){
+    return this.listaFacturas;
+  }
+
+  busquedaFactura(key: string){
+    const busqueda = this.listaFacturas.filter(n => (n.nombreCajero.includes(key) || n.nombre.includes(key)));
+    console.log(busqueda);
+    return busqueda;
+  }
 
 
 }

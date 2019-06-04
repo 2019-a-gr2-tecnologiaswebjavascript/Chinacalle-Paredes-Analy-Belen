@@ -26,6 +26,11 @@ export class RutaAdministrarGruposComponent implements OnInit {
     this.estudiantes = this._AdminGruposService.eliminar(id);
   }
 
+  redirigir(id){
+    const ruta = ['/menu','revisar-grupos','producto',id];
+    this._AdminGruposService.redirigir(ruta);
+  }
+
   ngOnInit() {
     this.estudiantes = this._AdminGruposService.enviarEstudiantes();
     console.log(this.estudiantes)

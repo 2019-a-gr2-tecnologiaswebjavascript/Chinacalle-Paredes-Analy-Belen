@@ -16,7 +16,7 @@ novalidate
 
       <input id="nombre" 
       required 
-      name="nombreUsuario"  
+      name="nombre"  
       type="email"   
       [(ngModel)]="nombre"
       #vtNombre="ngModel"
@@ -26,7 +26,7 @@ novalidate
 
 <label for="apellido">Apellido</label>
   <input id="apellido" required 
-  name="nombreApellido"  
+  name="apellido"  
   type="text"  
   [(ngModel)]="apellido"
   #vtApellido="ngModel"
@@ -39,22 +39,13 @@ novalidate
 
   <input id="fechaNacimiento" 
   required 
-  name="fechaUsuario"  
+  name="fechaNacimiento"  
   type="date"   
   [(ngModel)]="fechaNacimiento"
   #vtFechaNacimiento="ngModel"
   >
 
-  <label for="semestreActual">Semestre </label>
-  <input id="semestreActual" 
-  required 
-  name="semestreActual"  
-  type="number"
-  min="1"
-  max="10"   
-  [(ngModel)]="semestreActual"
-  #vtSemestreActual="ngModel"
-  >
+  
 
 <br>
   <label for="graduado">Estado </label>
@@ -66,8 +57,8 @@ novalidate
   [(ngModel)]="graduado"
   #vtGraduado="ngModel"
    >
-    <option value="1">Graduado</option>
-    <option value="0">No graduado</option>
+    <option value="true">Graduado</option>
+    <option value="false">No graduado</option>
   </select>
 
 
@@ -87,7 +78,7 @@ novalidate
 
   <br>
   <br>
-  <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="formularioUsuario.invalid">Crear</button>
+  <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="formularioUsuario.invalid" >Crear</button>
   <button class="btn btn-outline-danger btn-block estaciado-boton"  type="submit" [routerLink]="['/menu','revisar-grupos']"> Cancelar</button>
 
 </form>
