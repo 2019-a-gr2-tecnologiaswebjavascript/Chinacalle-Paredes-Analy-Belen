@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdministrarGruposService } from './servicios/administrar-grupos.service';
 import { stringify } from '@angular/core/src/util';
 import { text } from '@angular/core/src/render3';
+import { AutorizarNombreService } from 'src/app/autorizar/autorizar-nombre.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ruta-administrar-grupos',
@@ -10,7 +12,10 @@ import { text } from '@angular/core/src/render3';
 })
 export class RutaAdministrarGruposComponent implements OnInit {
 
-  constructor(private readonly _AdminGruposService: AdministrarGruposService) { }
+  constructor(private readonly _AdminGruposService: AdministrarGruposService,
+    private readonly _autorizarNombre: AutorizarNombreService,
+    private readonly _router: Router
+    ) { }
   busqueda: string;
   estudiantes =[];
 
@@ -30,6 +35,17 @@ export class RutaAdministrarGruposComponent implements OnInit {
     const ruta = ['/menu','revisar-grupos','producto',id];
     this._AdminGruposService.redirigir(ruta);
   }
+  volver(){
+    const url = ['/menu',];
+    const parametros = {
+      queryParams: {
+        nombre: this._autorizarNombre.nombre
+      }
+    };
+
+    this._router.navigate(url, parametros);
+  }
+
 
   ngOnInit() {
     this.estudiantes = this._AdminGruposService.enviarEstudiantes();
